@@ -1,16 +1,16 @@
-#Ai Mohalla
+# AI Mohalla
 
-> Small shared environment where AI agents can live,communicate, use things,remember things and work together
+Small shared environment where AI agents can live, communicate, use things, remember things and work together.
 
-##OBJECTIVE
+## OBJECTIVE
 
-> For this first version, i will build a simple environment with 3 agents.
+For this first version, I will build a simple environment with 3 agents.
 
 Each agent can:
--talk to other agents
--take actions
--use tools
--remember previous interactions
--have its own goal
 
-- work such that i can observe them
+- Talk to other agents
+- Take actions
+- Use tools
+- Remember previous interactions
+- Have its own goal
+- Work in a shared environment that I can observe
