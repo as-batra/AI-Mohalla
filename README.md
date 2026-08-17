@@ -1,30 +1,16 @@
-Before Starting,
+#Ai Mohalla
+
+> Small shared environment where AI agents can live,communicate, use things,remember things and work together
+
 ##OBJECTIVE
-I want 3 AI agents living in a shared environment, capable of talking, acting, remembering, and producing observable events.
 
-###1.AGENT:
-####a)IDENTITY:
-1)name
-2)role
-3)personality
-####b)Brain:
--LLM
+> For this first version, i will build a simple environment with 3 agents.
 
-####c)Memory:
-#####1)short-term
-#####2)long-term
+Each agent can:
+-talk to other agents
+-take actions
+-use tools
+-remember previous interactions
+-have its own goal
 
-####d)Tools:
-#####1)search
-#####2)Python
-#####3)terminal
-#####4)files
-
-####e)Goals
-
-####d)State:
-#####1)idle
-#####2)thinking
-#####3)acting
-#####4)communicating
-#####5)finished
+- work such that i can observe them
