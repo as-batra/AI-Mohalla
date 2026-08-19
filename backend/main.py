@@ -21,7 +21,24 @@ class Agent:
         f"{self.name} received a message from "
         f"{message.sender.name}: {message.content}"
         )      
+    def act(self, environment):
+      self.change_state("thinking")
 
+      if self.goals:
+        goal = self.goals[0]
+        print(f"{self.name} is working on: {goal}")
+      self.change_state("finished")
+
+    def send_message(self, environment, receiver, content):
+      self.change_state("communicating")
+
+      message = Message(
+        sender=self,
+        receiver=receiver,
+        content=content
+      )
+
+      environment.send_message(message)  
 researcher = Agent(name="AI Researcher",
     role="Research information and provide findings",
     personality="Curious and skeptical",
@@ -45,11 +62,8 @@ class Message:
         self.sender = sender
         self.receiver = receiver
         self.content = content
-message = Message(
-    sender=researcher,
-    receiver=coder,
-    content="I found a suitable sentiment analysis dataset."
-)    
+    def __repr__(self):
+      return f"Message(from={self.sender.name}, to={self.receiver.name}, content='{self.content}')"       
 class Environment:
     def __init__(self):
         self.messages = []
@@ -64,3 +78,13 @@ environment = Environment()
 environment.add_agent(researcher)
 environment.add_agent(coder)
 environment.add_agent(critic)
+print(coder.short_term_memory)
+researcher.set_goal(
+    "Find a suitable dataset for sentiment analysis"
+)
+researcher.act(environment)
+researcher.send_message(
+    environment,
+    coder,
+    "I found a suitable sentiment analysis dataset."
+)
